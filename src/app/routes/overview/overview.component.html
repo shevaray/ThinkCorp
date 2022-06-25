@@ -1,0 +1,140 @@
+<div class="row mb-5">
+  <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+    <app-overview-card
+      [Title]="'Daily Transaction Volume'"
+      [Price]="'45000'">
+    </app-overview-card>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-xl-3 ">
+    <app-overview-card
+      [Title]="'Daily Transaction Volume'"
+      [Price]="'2000000'">
+    </app-overview-card>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-xl-3 ">
+    <app-overview-card
+      [Title]="'Daily Transaction Volume'"
+      [Price]="'70500'">
+    </app-overview-card>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-xl-3">
+    <app-overview-card
+      [Title]="'Daily Transaction Volume'"
+      [Price]="'500000'">
+    </app-overview-card>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-12 col-sm-12 col-md-12 col-xl-8 mb-3">
+    <app-chart></app-chart>
+  </div>
+
+  <div class="col-12 col-sm-12 col-md-12 col-xl-4">
+    <div class="row overview-status">
+      <div class="col-12 col-sm-12 col-md-6 col-xl-12">
+        <div class="card mb-3" >
+          <div class="card-header">Orders</div>
+          <div class="chart-gradient-1"></div>
+          <div class="card-body">
+            <p class="card-text ">Pending Orders: <span class="text-warning">40</span></p>
+            <p class="card-text">Reconciled Orders: <span class="text-success">60</span></p>
+            <p class="card-text">Total Orders: <span class="text-primary">100</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-12 col-md-6 col-xl-12">
+        <div class="card mb-3">
+          <div class="card-header">Payments</div>
+          <div class="chart-gradient-2"></div>
+          <div class="card-body">
+            <p class="card-text ">Un-reconciled Payments: <span class="text-warning">20</span></p>
+            <p class="card-text">Reconciled Payments: <span class="text-success">80</span></p>
+            <p class="card-text">Total Payments: <span class="text-primary">100</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <h4 class="fw-bold">Payments</h4>
+  <div class="row mt-3 mb-4" style="font-size: small;">
+    <div class="col-12 col-sm-12 col-md-5 col-xl-5 d-flex mb-4">
+      <label class="me-1 mt-2">Showing</label>
+      <select class="form-select  shadow-none bg-transparent" style="width: 80px;">
+        <option selected></option>
+        <option value="1">100</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+      <label class="ms-1 mt-2">out of 3 payments</label>
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-3 col-xl-3 mb-4">
+      <!-- <form class="" role="search"> -->
+        <div class="input-group-text border-bottom border-dark rounded-0 bg-transparent">
+          <span class="input-group-text" id="basic-addon1">
+            <img src="assets/icons/Search.svg" alt="search icon" class="svg-icon">
+          </span>
+          <input
+            class="bg-transparent form-control me-2 shadow-none border-0 "
+            type="search"
+            [(ngModel)]="searchText"
+            placeholder="Search payments"
+            aria-label="Search"
+          >
+        </div>
+      <!-- </form> -->
+    </div>
+
+    <div class="col-12 col-sm-12 col-md-3 col-xl-3 d-flex mb-4 ">
+      <label class="me-2 mt-2">Show</label>
+      <select class="form-select  shadow-none bg-transparent">
+        <option selected [disabled]>Select</option>
+        <option value="1">All</option>
+        <option value="2">Reconciled</option>
+        <option value="3">Un-reconciled</option>
+        <option value="4">Pending</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="table-responsive" >
+      <table class="table table-hover" [ngStyle]="{'min-height': tableData.length > 0 ? 'auto': '200px'}">
+        <thead class="" style="border:none !important;">
+          <tr>
+            <th >ID</th>
+            <th >Title</th>
+            <th >Price</th>
+            <th>Transaction No</th>
+            <th >Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of tableData | filter:searchText; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{data.title}}</td>
+            <td>&#36;{{data.price}}</td>
+            <td>{{data.transactionNO}}</td>
+            <td>
+              <p class="status">
+                <!-- <span
+                  [ngClass]=""
+                  >
+                </span> -->
+                {{data.status}}
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+

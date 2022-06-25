@@ -1,0 +1,11 @@
+.dashboard-content {
+  padding: 5rem 1rem;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+}
+@media (min-width: 993px) {
+  .dashboard-content {
+    padding-left: 19.6rem;
+  }
+}
