@@ -1,0 +1,81 @@
+<div class="sidebar">
+  <div class="sidebar-nav ">
+    <div class="d-flex justify-content-center">
+      <a
+        class="btn btn-success rounded-pill shadow-none ps-3 pe-3 mb-5"
+        type="button"
+        href=""
+        [routerLink]="['/overview']"
+      >
+        GENERATE INVOICE
+      </a>
+    </div>
+
+    <ul class="nav-list mt-3">
+      <h6>Main</h6>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="#" class="nav-link" [routerLink]="['/overview']">
+          <img src="assets/icons/overview.svg" alt="siderbar-icon" class="me-3">
+          <span>Overview</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav-list mt-3">
+      <h6>Payments</h6>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="#" class="nav-link" [routerLink]="['/all-payments']">
+          <img src="assets/icons/all-payments.svg"  class="me-3">
+          <span>All Payments</span>
+        </a>
+      </li>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="#" class="nav-link" [routerLink]="['/reconciled-payments']">
+          <img src="assets/icons/reconcilled-payments.svg" class="me-3">
+          <span>Reconciled Payments</span>
+        </a>
+      </li>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="" class="nav-link" [routerLink]="['/unreconciled-payments']">
+          <img src="assets/icons/unreconcilled-payments.svg" class="me-3">
+          <span>Un-Reconciled Payments</span>
+        </a>
+      </li>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="" class="nav-link" [routerLink]="['/manual-settlement']">
+          <img src="assets/icons/settlement.svg" class="me-3">
+          <span>&nbsp;Manual Settlement</span>
+        </a>
+      </li>
+    </ul>
+
+    <ul class="nav-list mt-3">
+      <h6>Orders</h6>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="" class="nav-link" [routerLink]="['/all-orders']">
+          <img src="assets/icons/orders.svg" alt="siderbar-icon" class="me-3">
+          All Orders
+        </a>
+      </li>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="" class="nav-link" [routerLink]="['/pending-orders']">
+          <img src="assets/icons/pending-orders.svg" alt="siderbar-icon" class="me-2">
+          &nbsp;Pending Orders
+        </a>
+      </li>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="" class="nav-link" [routerLink]="['/reconciled-orders']">
+          <img src="assets/icons/reconcilled-orders.svg" alt="siderbar-icon" class="me-2 ">
+          &nbsp;Reconcilled Orders
+        </a>
+      </li>
+      <li class="nav-list-item" [routerLinkActive]="'nav-link-active'" [routerLinkActiveOptions]="{exact:true}">
+        <a href="" class="nav-link" [routerLink]="['/merchant-profile']">
+          <img src="assets/icons/merchant.svg" alt="siderbar-icon" class="me-3">
+          Merchant Profile
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</div>
