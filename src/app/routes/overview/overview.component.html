@@ -122,10 +122,21 @@
             <td>{{data.transactionNO}}</td>
             <td>
               <p class="status">
-                <!-- <span
-                  [ngClass]=""
+                <span
+                  *ngIf="data?.status.toLowerCase() == 'pending'"
+                  Class="dot-pending"
                   >
-                </span> -->
+                </span>
+                <span
+                  *ngIf="data?.status.toLowerCase() == 'un-reconciled'"
+                  Class="dot-warning"
+                  >
+                </span>
+                <span
+                  *ngIf="data?.status.toLowerCase() == 'reconciled'"
+                  Class="dot-success"
+                  >
+                </span>
                 {{data.status}}
               </p>
             </td>

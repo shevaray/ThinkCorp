@@ -31,6 +31,13 @@ export class OverviewComponent implements OnInit {
       transactionNO: '36655',
       status: 'Reconciled'
       },
+    {
+      id:'3',
+      title:'fig',
+      price: '6.99',
+      transactionNO: '36655',
+      status: 'Reconciled'
+      },
   ]
 
   constructor() { }
