@@ -74,7 +74,6 @@
     </div>
 
     <div class="col-12 col-sm-12 col-md-3 col-xl-3 mb-4">
-      <!-- <form class="" role="search"> -->
         <div class="input-group-text border-bottom border-dark rounded-0 bg-transparent">
           <span class="input-group-text" id="basic-addon1">
             <img src="assets/icons/Search.svg" alt="search icon" class="svg-icon">
@@ -87,17 +86,16 @@
             aria-label="Search"
           >
         </div>
-      <!-- </form> -->
     </div>
 
     <div class="col-12 col-sm-12 col-md-3 col-xl-3 d-flex mb-4 ">
       <label class="me-2 mt-2">Show</label>
-      <select class="form-select  shadow-none bg-transparent">
-        <option selected [disabled]>Select</option>
-        <option value="1">All</option>
-        <option value="2">Reconciled</option>
-        <option value="3">Un-reconciled</option>
-        <option value="4">Pending</option>
+      <select class="form-select  shadow-none bg-transparent" (change)="onFilterTable()" #options>
+        <option selected disabled>Select</option>
+        <option value="All">All</option>
+        <option value="Reconciled">Reconciled</option>
+        <option value="Un-reconciled">Un-reconciled</option>
+        <option value="Pending">Pending</option>
       </select>
     </div>
   </div>

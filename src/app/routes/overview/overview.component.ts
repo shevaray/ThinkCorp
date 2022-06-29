@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { tableData } from 'src/app/core/interfaces/table-data.interface';
+import { ListService } from 'src/app/core/services/list.service';
 
 @Component({
   selector: 'app-overview',
@@ -7,42 +8,33 @@ import { tableData } from 'src/app/core/interfaces/table-data.interface';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent implements OnInit {
+  @ViewChild('options') option!: ElementRef;
+
   searchText:any;
 
-  tableData: tableData[] = [
-    {
-      id:'4',
-      title:'Apple',
-      price: '30.00',
-      transactionNO: '33455',
-      status: 'Pending'
-    },
-    {
-      id:'2',
-      title:'Orange',
-      price: '4.00',
-      transactionNO: '3335',
-      status: 'Un-reconciled'
-      },
-    {
-      id:'1',
-      title:'Pineapple',
-      price: '6.99',
-      transactionNO: '36655',
-      status: 'Reconciled'
-      },
-    {
-      id:'3',
-      title:'fig',
-      price: '6.99',
-      transactionNO: '36655',
-      status: 'Reconciled'
-      },
-  ]
+  tableData: tableData[] = [];
+  tmpTableData: tableData[] = []
 
-  constructor() { }
+  constructor(private listService: ListService) { }
 
   ngOnInit(): void {
+    this.listService
+    .getTableData()
+    .subscribe((res:any)=>{
+      this.tmpTableData = res.map((data:any)=>{
+        return data;
+      })
+      this.tableData = this.tmpTableData
+    })
+  }
+
+  onFilterTable(){
+    let option = this.option.nativeElement.value.toLowerCase()
+    if (option == "all"){
+      this.tableData = this.tmpTableData
+    }else{
+      this.tableData = this.tmpTableData.filter(data => data.status.toLowerCase() == option)
+    }
   }
 
 }
