@@ -6,6 +6,7 @@ import { RoutesModule } from './routes/routes.module';
 
 import { AppComponent } from './app.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     AppRoutingModule,
     RoutesModule,
     Ng2SearchPipeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
