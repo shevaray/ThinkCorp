@@ -35,7 +35,6 @@ export class OverviewComponent implements OnInit {
     }else{
       this.tableData = this.tmpTableData.filter(data => data.status.toLowerCase() == option)
     }
-    console.log(option);
 
   }
 
